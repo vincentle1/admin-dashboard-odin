@@ -22,6 +22,7 @@
 
   --fs-body-1: 1.8rem;
   --fs-body-2: 1.6rem;
+  --fs-body-3: 1.4rem;
 
   --fs-button: 1.6rem;
 
@@ -30,7 +31,7 @@
   
   --fs-nav: 2.4rem;
   
-  --fs-logo: 2.4rem;
+  --fs-logo: 2.0rem;
 
 /* colors
 =================================== */
@@ -41,12 +42,13 @@
   --col-gray: #e7e9ee;
   --col-black: #111827;
   --col-text-gray: #11182780;
+  --col-line-gray: #11182740;
 
 }
 
 body {
   display: grid;
-  grid-template-columns: minmax(250px, 1fr) 4fr;
+  grid-template-columns: minmax(250px, 1fr) 5fr;
 }
 
 
@@ -55,7 +57,112 @@ body {
 
 header {
   grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 2rem 4rem;
+  gap: 2rem;
 }
+
+.search {
+  grid-column: 1 / span 3;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  align-items: center;
+}
+
+.search > img {
+  width: 4rem;
+}
+
+.search > input {
+  font-size: var(--fs-body-1);
+  background: var(--col-gray);
+  border-style: none;
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.top-bar {
+  grid-column: 5 / 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr 4fr;
+  gap: 2rem;
+  align-items: center;
+
+}
+
+.top-bar > img[src="assets/notification.svg"] {
+  min-width: 2.6rem;
+  width: 2.6rem;
+  justify-self: center;
+}
+
+.top-bar > img[src="assets/cat-profile.jpg"] {
+  object-fit: cover;
+  border-radius: 10rem;
+  width: 3.8rem;
+  height: 3.8rem;
+  min-width: 3.8rem;
+  justify-self: center;
+}
+
+.top-bar > a {
+  text-decoration: none;
+  font-size: var(--fs-body-2);
+  font-weight: var(--fw-bold);
+  color: var(--col-black);
+}
+
+.profile-info {
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.profile-info > img {
+  object-fit: cover;
+  border-radius: 10rem;
+  width: 6rem;
+  height: 6rem;
+  grid-row: 1 / 3;
+  min-width: 6rem;
+}
+
+.profile-info > p {
+  font-size: var(--fs-body-2);
+  font-weight: var(--fw-bold);
+  align-self: last baseline;
+}
+
+.profile-info > p.profile-name {
+  font-size: var(--fs-body-1);
+  font-weight: var(--fw-bold);
+  grid-column: 2 / span 1;
+  align-self: first baseline;
+}
+
+.controls {
+  grid-column: 4 / 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+.controls > button {
+  font-size: var(--fs-button);
+  font-weight: var(--fw-bold);
+  color: var(--col-white);
+  padding: 0.8rem 0.8rem;
+  border-radius: 10rem;
+  border-style: none;
+  background: var(--col-primary);
+}
+
+
+
 
 
 /* sidebar
@@ -114,15 +221,114 @@ aside li {
 
 
 
-
-
-
 /* main
 =================================== */
 
 main {
   background: var(--col-gray);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.6rem;
+  padding: 3.2rem 3.2rem;
 }
+
+/* projects */
+
+.projects {
+  grid-column: 1 / 9;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+ 
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+.projects p {
+  font-size: var(--fs-body-3);
+  color: var(--col-text-gray);
+  max-width: 35ch;
+}
+
+.project-card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.project-card {
+  background: var(--col-white);
+  border-radius: 1rem;
+  padding: 3.2rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  border-left: 10px solid var(--col-accent);
+}
+
+.project-card img {
+  width: 2rem;
+}
+
+.icon-projects {
+  display: flex;
+  justify-content: end;
+  gap: 1.6rem;
+}
+
+/* announcements */
+
+.announcements {
+  grid-column: 10 / 13;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.announcements-card {
+  background: var(--col-white);
+  border-radius: 1rem;
+  padding: 3.2rem; 
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  gap: 1.6rem;
+}
+
+.announcement:nth-of-type(-n+2) {
+  border-bottom: 2px solid var(--col-line-gray);
+}
+
+.announcement > p {
+  font-size: var(--fs-body-3);
+  color: var(--col-text-gray);
+  padding-bottom: 1rem;
+}
+
+/* trending */
+
+.trending {
+  grid-column: 10 / 13;
+  grid-row: 2 / 4;
+}
+
+.profile-icon {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+
+
+
 
 
 
