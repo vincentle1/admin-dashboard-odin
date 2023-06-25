@@ -229,12 +229,12 @@ main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  gap: 1.6rem;
+  gap: 6rem;
   padding: 3.2rem 3.2rem;
 }
 
 .right-side-container {
-  grid-column: 10 / 13;
+  grid-column: 9 / 13;
   grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
@@ -333,6 +333,8 @@ h3 {
   flex-direction: column;
   gap: 1.6rem;
 }
+
+
 
 .trending-card {
   display: flex;
